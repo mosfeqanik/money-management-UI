@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:money_management_ui/views/homepage.dart';
 
 void main() {
-  runApp(moneyManagement());
+  runApp(MoneyManagement());
 }
 
-class moneyManagement extends StatelessWidget {
-  const moneyManagement({Key? key}) : super(key: key);
+class MoneyManagement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Homepage(),
+    ) ;
   }
 }
