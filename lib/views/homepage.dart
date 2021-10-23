@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:money_management_ui/constants/color_constants.dart';
 import 'package:money_management_ui/model/card_model.dart';
+import 'package:money_management_ui/model/operation_model.dart';
 
 class Homepage extends StatefulWidget {
   @override
@@ -11,6 +12,18 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  // Current selected
+  int current = 0;
+
+  // Handle Indicator
+  List<T> map<T>(List list, Function handler) {
+    List<T> result = [];
+    for (var i = 0; i < list.length; i++) {
+      result.add(handler(i, list[i]));
+    }
+    return result;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -174,6 +187,42 @@ class _HomepageState extends State<Homepage> {
                     ),
                   );
                 },
+              ),
+            ),
+
+            // Operation Section
+            Padding(
+              padding:
+              EdgeInsets.only(left: 16, bottom: 13, top: 29, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Operation',
+                    style: GoogleFonts.inter(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: kBlackColor),
+                  ),
+                  Row(
+                    children: map<Widget>(
+                      datas,
+                          (index, selected) {
+                        return Container(
+                          alignment: Alignment.centerLeft,
+                          height: 9,
+                          width: 9,
+                          margin: EdgeInsets.only(right: 6),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: current == index
+                                  ? kBlueColor
+                                  : kTwentyBlueColor),
+                        );
+                      },
+                    ),
+                  )
+                ],
               ),
             ),
           ],
