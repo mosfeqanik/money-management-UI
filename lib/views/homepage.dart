@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:money_management_ui/constants/color_constants.dart';
 import 'package:money_management_ui/model/card_model.dart';
 import 'package:money_management_ui/model/operation_model.dart';
+import 'package:money_management_ui/model/transaction_model.dart';
 
 class Homepage extends StatefulWidget {
   @override
@@ -226,6 +227,7 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
 
+            //Operation Card Part
             Container(
               height: 123,
               child: ListView.builder(
@@ -249,6 +251,98 @@ class _HomepageState extends State<Homepage> {
                 },
               ),
             ),
+
+            // Transaction Section
+            Padding(
+              padding:
+              EdgeInsets.only(left: 16, bottom: 13, top: 29, right: 10),
+              child: Text(
+                'Transaction Histories',
+                style: GoogleFonts.inter(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: kBlackColor),
+              ),
+            ),
+
+            ListView.builder(
+              itemCount: transactions.length,
+              padding: EdgeInsets.only(left: 16, right: 16),
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return Container(
+                  height: 76,
+                  margin: EdgeInsets.only(bottom: 13),
+                  padding:
+                  EdgeInsets.only(left: 24, top: 12, bottom: 12, right: 22),
+                  decoration: BoxDecoration(
+                    color: kWhiteColor,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: kTenBlackColor,
+                        blurRadius: 10,
+                        spreadRadius: 5,
+                        offset: Offset(8.0, 8.0),
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Container(
+                            height: 57,
+                            width: 57,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: AssetImage(transactions[index].photo),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 13,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                transactions[index].name,
+                                style: GoogleFonts.inter(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w700,
+                                    color: kBlackColor),
+                              ),
+                              Text(
+                                transactions[index].date,
+                                style: GoogleFonts.inter(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w400,
+                                    color: kGreyColor),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Text(transactions[index].amount, style: GoogleFonts.inter(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: kBlueColor
+                          ),)
+                        ],
+                      )
+                    ],
+                  ),
+                );
+              },
+            )
+
+
           ],
         ),
       ),
