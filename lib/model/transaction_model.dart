@@ -30,5 +30,37 @@ var transactionData = [
     "photo": "assets/images/user_photo.png",
     "date": "15th Mar 2020",
     "amount": "+\$250.00"
-  }
+  },
+  {
+    "name": "Nike Outlet",
+    "photo": "assets/images/nike_photo.png",
+    "date": "30th Mar 2020",
+    "amount": "-\$100.00"
+  },
+  {
+    "name": "Nike Outlet",
+    "photo": "assets/images/nike_photo.png",
+    "date": "30th Mar 2020",
+    "amount": "-\$100.00"
+  },{
+    "name": "Nike Outlet",
+    "photo": "assets/images/nike_photo.png",
+    "date": "30th Mar 2020",
+    "amount": "-\$100.00"
+  },{
+    "name": "Nike Outlet",
+    "photo": "assets/images/nike_photo.png",
+    "date": "30th Mar 2020",
+    "amount": "-\$100.00"
+  },{
+    "name": "Nike Outlet",
+    "photo": "assets/images/nike_photo.png",
+    "date": "30th Mar 2020",
+    "amount": "-\$100.00"
+  },{
+    "name": "Nike Outlet",
+    "photo": "assets/images/nike_photo.png",
+    "date": "30th Mar 2020",
+    "amount": "-\$100.00"
+  },
 ];

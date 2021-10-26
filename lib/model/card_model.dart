@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
+
 class CardModel {
   String user;
   String cardNumber;
   String cardExpired;
   String cardType;
-  int cardBackground;
+  Color cardBackground;
   String cardElementTop;
   String cardElementBottom;
 
